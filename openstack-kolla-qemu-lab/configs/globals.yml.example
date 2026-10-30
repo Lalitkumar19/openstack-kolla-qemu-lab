@@ -1,0 +1,18 @@
+---
+# EXAMPLE: replace documentation-only 192.0.2.10 with YOUR management IP.
+kolla_base_distro: "ubuntu"
+openstack_release: "2026.1"
+kolla_container_engine: "docker"
+
+network_interface: "enp3s0"
+api_interface: "enp3s0"
+neutron_external_interface: "enp8s0"
+
+# Lab-only host-IP endpoints, no separate VIP.
+kolla_internal_vip_address: "192.0.2.10"
+enable_haproxy: false
+enable_keepalived: false
+enable_proxysql: false
+
+nova_compute_virt_type: "qemu"
+enable_horizon: true

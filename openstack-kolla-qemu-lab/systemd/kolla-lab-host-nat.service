@@ -1,0 +1,17 @@
+[Unit]
+Description=Kolla lab host bridge and outbound NAT
+Wants=network-online.target
+Requires=docker.service
+After=network-online.target docker.service
+PartOf=docker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/kolla-lab-host-nat
+RemainAfterExit=yes
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
